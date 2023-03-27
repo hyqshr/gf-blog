@@ -1,0 +1,51 @@
+.home {
+  background-color: #dbe2ef;
+  background-image: url(../images/gf2.jpeg);
+  background-size: cover;
+  text-align: left;
+  height: 1000px;
+  background-repeat: no-repeat;
+  background-position: center;
+  /* padding: 5% 5%; */
+}
+
+.home h1,
+.home h2,
+.home h3,
+.home h4,
+.home p {
+  color: #5C1D0F;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+}
+.home-col {
+  padding: 15% 5%;
+}
+.button-home {
+  margin: 5% 3% 5% 0%;
+}
+
+.button-home a:hover,
+:focus {
+  color: #9acd32 !important;
+}
+
+.image-home {
+  width: 100%;
+  transform: rotate(0deg);
+  position: absolute;
+}
+
+@media (max-width: 1028px) {
+  .home {
+    text-align: center;
+  }
+
+  .image-home {
+    position: static;
+    transform: rotate(0);
+  }
+}
+
+.home {
+}
