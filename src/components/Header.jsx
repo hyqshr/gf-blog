@@ -41,7 +41,7 @@ function Header() {
               <Nav.Link href="#about" onClick={handleClick}>
                 About
               </Nav.Link>
-              <Nav.Link href="#education" onClick={handleClick}>
+              <Nav.Link href="#services" onClick={handleClick}>
                 Services
               </Nav.Link>
               <Nav.Link href="#contact" onClick={handleClick}>

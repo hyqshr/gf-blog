@@ -4,7 +4,7 @@ import "./styles/home.css";
 import useTypewriter from "react-typewriter-hook";
 import ScrollAnimation from "react-animate-on-scroll";
 import PictureAsPdfIcon from "@material-ui/icons/PictureAsPdf";
-import pdf1 from "./images/file/Resume.pdf";
+// import pdf1 from "./images/file/Resume.pdf";
 
 
 function Home() {
@@ -21,7 +21,7 @@ function Home() {
           style={{display: 'flex'}}
         >
           <ScrollAnimation animateIn="animate__backInLeft" duration={2}>
-            <h1 className="py-3">Elizabeth Taylar</h1>
+            <h1 className="py-3">Elizabeth Taylor</h1>
             <p>
               <h3 style={{color:"#e5f2ff"}}>{displayText}</h3>
             </p>

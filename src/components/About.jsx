@@ -2,7 +2,7 @@ import React from "react";
 import { Row, Col, Image } from "react-bootstrap";
 import "./styles/about.css";
 import ScrollAnimation from "react-animate-on-scroll";
-import aboutImage from "./images/myself.jpg";
+// import aboutImage from "./images/myself.jpg";
 
 function About() {
   return (
@@ -13,12 +13,12 @@ function About() {
           <ScrollAnimation
             animateIn="animate__bounceInLeft"
           >
-            <Image
+            {/* <Image
               className="about-image"
               src={aboutImage}
               thumbnail
               alt="aboutImage"
-            />
+            /> */}
           </ScrollAnimation>
         </Col>
         <Col lg={8} className="about-row">

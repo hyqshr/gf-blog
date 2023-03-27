@@ -1,4 +1,5 @@
 import React from "react";
+import { send } from 'emailjs-com';
 import {
   Container,
   Row,
@@ -11,6 +12,7 @@ import {
 import "./styles/contact.css";
 import interest from "./data/interest.js";
 import language from "./data/language.js";
+import { useState } from 'react';
 
 // 4个社交媒体图标
 import FacebookIcon from "@material-ui/icons/Facebook";
@@ -19,6 +21,36 @@ import EmailIcon from "@material-ui/icons/Email";
 import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 
 function Contact() {
+  const SERVICE_ID = "service_74h3bij";
+  const TEMPLATE_ID = "template_rc7ewy6";
+  const PUBLIC_KEY = "1F1jxol26kK4hesJZ";
+
+  const [toSend, setToSend] = useState({
+    from_name: '',
+    to_name: '',
+    message: '',
+    reply_to: '',
+  });
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    send(
+      SERVICE_ID,
+      TEMPLATE_ID,
+      toSend,
+      PUBLIC_KEY,
+    )
+      .then((response) => {
+        console.log('SUCCESS!', toSend, response.status, response.text);
+      })
+      .catch((err) => {
+        console.log('FAILED...', err);
+      });
+  };
+
+  const handleChange = (e) => {
+    setToSend({ ...toSend, [e.target.name]: e.target.value });
+  };
   return (
     <section className="section contact" id="contact">
       <Container>
@@ -69,31 +101,49 @@ function Contact() {
         </Row>
 
         {/* Contact with email */}
-        <Form className="form">
-          <Form.Group className="mb-3" controlId="formFirstName">
-            <Form.Label>First Name</Form.Label>
-            <Form.Control type="email" placeholder="Your First Name" />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
-          </Form.Group>          
-          <Form.Group className="mb-3" controlId="formLastName">
-            <Form.Label>Last Name</Form.Label>
-            <Form.Control type="email" placeholder="Your Last Name" />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
-          </Form.Group>
+        <form onSubmit={onSubmit}>
+          <input
+            type='text'
+            name='from_name'
+            placeholder='from name'
+            value={toSend.from_name}
+            onChange={handleChange}
+          />
+          <input
+            type='text'
+            name='to_name'
+            placeholder='to name'
+            value={toSend.to_name}
+            onChange={handleChange}
+          />
+          <input
+            type='text'
+            name='message'
+            placeholder='Your message'
+            value={toSend.message}
+            onChange={handleChange}
+          />
+          <input
+            type='text'
+            name='reply_to'
+            placeholder='Your email'
+            value={toSend.reply_to}
+            onChange={handleChange}
+          />
+          <input type="submit" value="Submit" />
+        </form>
+
+        <Form>
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Your Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type="email" placeholder="Enter email"/>
             <Form.Text className="text-muted">
               We'll never share your email with anyone else.
             </Form.Text>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Message</Form.Label>
+            <Form.Label>Password</Form.Label>
             <Form.Control type="password" placeholder="Password" />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
