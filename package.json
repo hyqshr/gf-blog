@@ -1,6 +1,7 @@
 {
   "name": "resume-template-yzw-done",
   "version": "1.0.0",
+  "homepage": "https://hyqshr.github.io/",
   "description": "",
   "keywords": [],
   "main": "src/index.js",
@@ -22,9 +23,12 @@
     "react-vertical-timeline-component": "3.3.3"
   },
   "devDependencies": {
+    "gh-pages": "^5.0.0",
     "typescript": "3.3.3"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

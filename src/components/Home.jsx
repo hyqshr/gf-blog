@@ -1,10 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Row, Col, Button } from "react-bootstrap";
 import "./styles/home.css";
-import useTypewriter from "react-typewriter-hook";
 import ScrollAnimation from "react-animate-on-scroll";
-import PictureAsPdfIcon from "@material-ui/icons/PictureAsPdf";
-// import pdf1 from "./images/file/Resume.pdf";
 
 
 function Home() {
